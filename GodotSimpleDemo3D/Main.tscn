@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0475lw0j7gfe"]
+
+[ext_resource type="PackedScene" uid="uid://bbdvt5gkjbugi" path="res://Enemy.tscn" id="1_yxa70"]
+[ext_resource type="PackedScene" uid="uid://c7rtom1u0ssng" path="res://Scenes/world.tscn" id="2_6kmi4"]
+[ext_resource type="PackedScene" uid="uid://bbs8c85aaqemi" path="res://Scenes/player.tscn" id="3_tdobt"]
+[ext_resource type="PackedScene" uid="uid://cre2yg5blk26" path="res://Scenes/camera.tscn" id="4_rapr1"]
+
+[node name="Main" type="Node"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_yxa70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6517, -0.97811, 0)
+
+[node name="World" parent="." instance=ExtResource("2_6kmi4")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_tdobt")]
+camera = NodePath("Camera")
+
+[node name="Camera" parent="Player" instance=ExtResource("4_rapr1")]
